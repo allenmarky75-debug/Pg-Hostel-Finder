@@ -32,3 +32,19 @@ CREATE TABLE IF NOT EXISTS listings (
   FOREIGN KEY (owner_id) REFERENCES users(id) ON DELETE CASCADE,
   INDEX (city), INDEX (type), INDEX (rent)
 );
+-- Keep existing installations up to date as well as creating fresh databases.
+SET @has_map_link = (
+  SELECT COUNT(*)
+  FROM information_schema.COLUMNS
+  WHERE TABLE_SCHEMA = DATABASE()
+    AND TABLE_NAME = 'listings'
+    AND COLUMN_NAME = 'map_link'
+);
+SET @map_link_migration = IF(
+  @has_map_link = 0,
+  'ALTER TABLE listings ADD COLUMN map_link VARCHAR(500) DEFAULT NULL',
+  'SELECT 1'
+);
+PREPARE map_link_stmt FROM @map_link_migration;
+EXECUTE map_link_stmt;
+DEALLOCATE PREPARE map_link_stmt;

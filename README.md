@@ -1,5 +1,7 @@
 # RoomKey – PG & Hostel Finder (PHP + MySQL)
 
+Live site: [https://pgfinder.gt.tc/](https://pgfinder.gt.tc/)
+
 ## Run it locally (XAMPP / WAMP / Laragon)
 1. Copy the `pg-finder` folder into `htdocs` (XAMPP) or `www` (WAMP).
 2. Start **Apache** and **MySQL** from the XAMPP control panel.

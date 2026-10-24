@@ -1,7 +1,7 @@
 :root {
   --ink: #16222b;
   --muted: #5d6b76;
-  --bg: #feebc4;
+  --bg: #fffdf8;
   --card: #fff;
   --line: #d6e0e3;
   --teal: #0d5c63;
@@ -135,7 +135,7 @@ a {
   padding: 36px 32px;
   border-radius: 16px;
   color: #fff;
-  background: var(--teal);
+  background: rgb(128, 155, 246);
 }
 
 .hero h1 {
